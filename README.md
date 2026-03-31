@@ -1,34 +1,32 @@
-📍 Kentsel Haber İzleme ve Harita Üzerinde Görselleştirme Sistemi
-Bu proje, Kocaeli yerel haber sitelerinden (Çağdaş Kocaeli, Özgür Kocaeli, Ses Kocaeli vb.) son 3 güne ait verileri Web Scraping yöntemleriyle toplayan, Doğal Dil İşleme (NLP) kullanarak sınıflandıran ve elde edilen olayları Google Maps API üzerinden interaktif bir harita üzerinde sunan uçtan uca bir sistemdir..
+# 📍 Kentsel Haber İzleme ve Harita Üzerinde Görselleştirme Sistemi
 
-🚀 Öne Çıkan Özellikler
-Akıllı Scraping: 5 farklı yerel kaynaktan otomatik veri çekme ve HTML temizliği.
+![Kocaeli University](https://img.shields.io/badge/Kocaeli_University-Computer_Engineering-blue) ![Project Status](https://img.shields.io/badge/Status-Completed-success) ![Python](https://img.shields.io/badge/Python-3.12+-yellow) ![FastAPI](https://img.shields.io/badge/FastAPI-Latest-009688) ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248)
 
-NLP ile Sınıflandırma: intfloat/multilingual-e5-base modeli kullanılarak haberlerin Trafik Kazası, Yangın, Hırsızlık, Elektrik Kesintisi ve Kültürel Etkinlikler kategorilerine yüksek doğrulukla atanması.
+Bu proje, Kocaeli yerel haber sitelerinden (Çağdaş Kocaeli, Özgür Kocaeli, Ses Kocaeli, Yeni Kocaeli ve Bizim Yaka) son 3 güne ait verileri **Web Scraping** yöntemleriyle toplayan, **Doğal Dil İşleme (NLP)** kullanarak sınıflandıran ve elde edilen olayları **Google Maps API** üzerinden interaktif bir harita üzerinde sunan uçtan uca bir sistemdir.
 
-Semantik Tekrar Engelleme: İçerik olarak %90 ve üzeri benzerlik gösteren farklı kaynaklardaki haberlerin tespit edilip tek bir marker altında birleştirilmesi.
+## 🚀 Öne Çıkan Özellikler
 
-Otomatik Konum Çıkarımı: Haber metninden mahalle/sokak bilgilerinin Regex ve NLP ile ayıklanıp koordinata dönüştürülmesi.
+* **Akıllı Scraping:** 5 farklı yerel kaynaktan otomatik veri çekme ve asenkron HTML temizliği.
+* **NLP ile Sınıflandırma:** `intfloat/multilingual-e5-base` modeli kullanılarak haberlerin; *Trafik Kazası, Yangın, Hırsızlık, Elektrik Kesintisi ve Kültürel Etkinlikler* kategorilerine AI desteğiyle atanması.
+* **Semantik Tekrar Engelleme:** Farklı kaynaklarda yer alan ancak içerik olarak aynı olan haberlerin %90 ve üzeri benzerlik oranıyla tespit edilip tek bir marker altında birleştirilmesi.
+* **Otomatik Konum Çıkarımı:** Haber metninden mahalle ve sokak bilgilerinin Regex ve NLP ile ayıklanıp koordinata dönüştürülmesi.
+* **Dinamik Dashboard:** Harita yeniden yüklenmeden anlık filtreleme (tarih, ilçe, tür) ve haber detaylarına hızlı erişim.
 
-Dinamik Dashboard: Harita üzerinden anlık filtreleme (tarih, ilçe, tür) ve haber detaylarına hızlı erişim.
+## 🛠 Teknik Mimari
 
-🛠 Teknik Mimari
-Backend (Python - FastAPI)
-Veritabanı: MongoDB (Zorunlu ister kapsamında Schema Validasyonu ile birlikte).
+### Backend (Python - FastAPI)
+* **Veritabanı:** MongoDB (Zorunlu ister kapsamında Schema Validasyonu ve Unique Index desteğiyle).
+* **NLP & AI:** `Sentence-Transformers` ve `PyTorch` tabanlı semantik analiz motoru.
+* **Geocoding:** Google Maps Geocoding API entegrasyonu ve maliyet tasarrufu için MongoDB tabanlı konum önbellekleme (Caching).
+* **Scraping:** `httpx` ve `BeautifulSoup4` ile asenkron veri toplama.
 
-NLP & AI: Sentence-Transformers ve PyTorch tabanlı semantik analiz.
+### Frontend (Modern Web)
+* **Harita:** Google Maps JavaScript API (Advanced Markers ve Custom Dark Style).
+* **Arayüz:** CSS Glassmorphism ve modern dashboard tasarımı (Inter & Outfit fontları ile premium görünüm).
 
-Geocoding: Google Maps Geocoding API ile adres-koordinat dönüşümü ve maliyet tasarrufu için MongoDB tabanlı konum önbellekleme (Caching).
+## 📂 Dosya Yapısı
 
-Scraping: httpx ve BeautifulSoup4 ile asenkron veri toplama.
-
-Frontend (Modern Web)
-Harita: Google Maps JavaScript API (Advanced Markers).
-
-Arayüz: CSS Glassmorphism ve Modern Dashboard tasarımı (Inter & Outfit fontları).
-
-📂 Dosya Yapısı
-Bash
+```bash
 .
 ├── backend/
 │   ├── main.py            # FastAPI API uç noktaları
@@ -43,6 +41,8 @@ Bash
 │   ├── app.js             # Harita mantığı ve API entegrasyonu
 │   └── config.js          # API Anahtarları ve yapılandırma
 └── README.md
+
+
 🔧 Kurulum ve Çalıştırma
 1. Gereksinimler
 Python 3.12+
@@ -66,19 +66,6 @@ Backend'i çalıştırın:
 Bash
 uvicorn main:app --reload
 Ardından frontend/index.html dosyasını tarayıcınızda açın.
-
-📊 Veri Akış Şeması
-Tetikleme: Kullanıcı arayüzden "Haberleri Güncelle"ye tıklar.
-
-Scraping: Belirlenen 5 yerel siteden son 3 günün haberleri çekilir.
-
-İşleme: Metinler temizlenir, AI modeli ile kategorize edilir.
-
-Konum: Haber metninden konum ayıklanır ve koordinata dönüştürülür.
-
-Kayıt: Veriler MongoDB'ye kaydedilir (Duplicate kontrolü ile).
-
-Görselleştirme: Harita üzerinde türe göre farklı ikonlarla gösterilir.
 
 👨‍💻 Hazırlayan
 Ömercan - [Kocaeli Üniversitesi Bilgisayar Mühendisliği]
