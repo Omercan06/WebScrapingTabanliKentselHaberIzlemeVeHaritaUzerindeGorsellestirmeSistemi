@@ -1,6 +1,6 @@
 # 📍 Kentsel Haber İzleme ve Harita Üzerinde Görselleştirme Sistemi
 
-![Proje Arayüzü](BURAYA_ISSUE_ÜZERİNDEN_ALDIĞIN_GÖRSEL_LİNKİNİ_YAPIŞTIR)
+![Proje Arayüzü](<img width="1919" height="946" alt="Image" src="https://github.com/user-attachments/assets/a7a24ce9-6515-4a1a-a507-c25afd0cc515" />)
 
 ![Kocaeli University](https://img.shields.io/badge/Kocaeli_University-Computer_Engineering-blue) ![Project Status](https://img.shields.io/badge/Status-Completed-success) ![Python](https://img.shields.io/badge/Python-3.12+-yellow) ![FastAPI](https://img.shields.io/badge/FastAPI-Latest-009688) ![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-47A248)
 
